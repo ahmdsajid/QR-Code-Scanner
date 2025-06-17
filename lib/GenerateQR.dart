@@ -26,7 +26,7 @@ class _GenerateQRState extends State<GenerateQR> {
             children: [
               if(urlcontroller.text.isNotEmpty)
               QrImageView(data: urlcontroller.text, size: 200,),
-               SizedBox(height: 10,),
+               SizedBox(height: 40,),
                Container(
                 padding: EdgeInsets.only(left: 10, right: 10),
                 child: TextField(
