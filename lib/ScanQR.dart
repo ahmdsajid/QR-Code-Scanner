@@ -14,10 +14,11 @@ class _ScanQRState extends State<ScanQR> {
 
   Future<void> ScanQR()async{
     try{
+      // ignore: unused_local_variable
       final qrCode = await FlutterBarcodeScanner.scanBarcode('#ff666', 'Cancel', true, ScanMode.QR);
       if(!mounted)return;
       setState(() {
-        this.qrResult = qrResult.toString();
+        qrResult = qrResult.toString();
       });
     } on PlatformException{
       qrResult = 'Failed to read the QR';
@@ -28,16 +29,16 @@ class _ScanQRState extends State<ScanQR> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("QR Code Scanner"),
+        title: const Text("QR Code Scanner"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 30,),
-            Text('$qrResult', style: TextStyle(color: Colors.black),),
-            SizedBox(height: 30,),
-            ElevatedButton(onPressed: ScanQR, child: Text("Scan Code"))
+            const SizedBox(height: 30,),
+            Text(qrResult, style: const TextStyle(color: Colors.black),),
+            const SizedBox(height: 30,),
+            ElevatedButton(onPressed: ScanQR, child: const Text("Scan Code"))
           ],
         ),
       ),

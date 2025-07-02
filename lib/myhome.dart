@@ -24,14 +24,14 @@ class _MyhomeState extends State<Myhome> {
           children: [
             ElevatedButton(onPressed: () {
               setState(() {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> ScanQR()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> const ScanQR()));
               });
             }, 
               child: const Text('Scan QR Code',style: TextStyle(fontSize: 20,color: Colors.blue),)),
           const SizedBox(height: 20,),
             ElevatedButton(onPressed: (){
               setState(() {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>GenerateQR()));
+                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const GenerateQR()));
               });
             }, 
               child: const Text('Generate QR', style: TextStyle(fontSize: 20, color: Colors.blue),))

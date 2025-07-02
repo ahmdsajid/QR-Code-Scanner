@@ -26,9 +26,9 @@ class _GenerateQRState extends State<GenerateQR> {
             children: [
               if(urlcontroller.text.isNotEmpty)
               QrImageView(data: urlcontroller.text, size: 200,),
-               SizedBox(height: 40,),
+               const SizedBox(height: 40,),
                Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: TextField(
                   controller: urlcontroller,
                   decoration: InputDecoration(
@@ -38,10 +38,10 @@ class _GenerateQRState extends State<GenerateQR> {
                   ),
                 ),
                ),
-               SizedBox(height: 10,),
+               const SizedBox(height: 10,),
                ElevatedButton(onPressed: (){setState(() {
                  
-               });}, child: Text('Generate QR code'))
+               });}, child: const Text('Generate QR code'))
           ],),
         ),
       ),
