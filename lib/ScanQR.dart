@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+//import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class ScanQR extends StatefulWidget {
   const ScanQR({super.key});
@@ -15,7 +15,7 @@ class _ScanQRState extends State<ScanQR> {
   Future<void> ScanQR()async{
     try{
       // ignore: unused_local_variable
-      final qrCode = await FlutterBarcodeScanner.scanBarcode('#ff666', 'Cancel', true, ScanMode.QR);
+      //final qrCode = await FlutterBarcodeScanner.scanBarcode('#ff666', 'Cancel', true, ScanMode.QR);
       if(!mounted)return;
       setState(() {
         qrResult = qrResult.toString();

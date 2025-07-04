@@ -14,35 +14,43 @@ class _GenerateQRState extends State<GenerateQR> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white
+        ),
         centerTitle: true,
         title: const Text('Generate QR Code', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey.shade900,
         ),
       
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if(urlcontroller.text.isNotEmpty)
-              QrImageView(data: urlcontroller.text, size: 200,),
-               const SizedBox(height: 40,),
-               Container(
-                padding: const EdgeInsets.only(left: 10, right: 10),
-                child: TextField(
-                  controller: urlcontroller,
-                  decoration: InputDecoration(
-                    hintText: "Enter your data",
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                    labelText: "Enter your data"
+      body: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if(urlcontroller.text.isNotEmpty)
+                QrImageView(data: urlcontroller.text, size: 200,),
+                 const SizedBox(height: 40,),
+                 Container(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: TextField(
+                    controller: urlcontroller,
+                    decoration: InputDecoration(
+                      hintText: "Enter your data",
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                      labelText: "Enter your data"
+                    ),
                   ),
-                ),
-               ),
-               const SizedBox(height: 10,),
-               ElevatedButton(onPressed: (){setState(() {
-                 
-               });}, child: const Text('Generate QR code'))
-          ],),
+                 ),
+                 const SizedBox(height: 10,),
+                 ElevatedButton(onPressed: (){setState(() {
+                   
+                 });}, child: const Text('Generate QR code'))
+            ],),
+          ),
         ),
       ),
     );
