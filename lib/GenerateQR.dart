@@ -14,7 +14,7 @@ class _GenerateQRState extends State<GenerateQR> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white
         ),
         centerTitle: true,
@@ -23,7 +23,7 @@ class _GenerateQRState extends State<GenerateQR> {
         ),
       
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.grey
         ),
         child: Center(
