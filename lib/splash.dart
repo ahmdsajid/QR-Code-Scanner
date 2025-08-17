@@ -23,7 +23,7 @@ class splashscreeen extends StatelessWidget {
           Column(
             children: [
               //top qr section
-              Expanded(
+              const Expanded(
                   flex: 2,
                   child: Center(
                     child: Icon(
@@ -37,7 +37,7 @@ class splashscreeen extends StatelessWidget {
                   flex: 1,
                   child: Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(60),
@@ -45,7 +45,7 @@ class splashscreeen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "Get Started",
                           style: TextStyle(
                             color: Colors.black,
@@ -53,11 +53,11 @@ class splashscreeen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 30),
                           child: Text(
                             "Your all-in-one solution for scanning and generating qr code- easy, fast and secure",
                             textAlign: TextAlign.center,
@@ -65,21 +65,21 @@ class splashscreeen extends StatelessWidget {
                                 TextStyle(color: Colors.black87, fontSize: 14),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
 
                         //circuler button
                         ElevatedButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=> Myhome()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Myhome()));
                             },
                             style: ElevatedButton.styleFrom(
-                                shape: CircleBorder(),
-                                padding: EdgeInsets.all(18),
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(18),
                                 backgroundColor: Colors.amber[700],
                                 elevation: 6),
-                            child: Icon(
+                            child: const Icon(
                               Icons.arrow_forward,
                               color: Colors.black,
                             ))
