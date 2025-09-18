@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_code/GenerateQR.dart';
 import 'package:qr_code/splash.dart';
 
 void main() {
