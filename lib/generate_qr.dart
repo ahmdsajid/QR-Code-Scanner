@@ -42,7 +42,7 @@ class _GenerateQRState extends State<GenerateQR> {
                     border: Border.all(color: Colors.amber, width: 2),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
+                        color: Colors.black.withValues(),
                         blurRadius: 8,
                         offset: const Offset(2, 4),
                       ),

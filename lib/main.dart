@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code/GenerateQR.dart';
+
 import 'package:qr_code/splash.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const splashscreeen(),
+      home: const Splashscreeen(),
     );
   }
 }

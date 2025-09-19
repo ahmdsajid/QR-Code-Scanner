@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code/GenerateQR.dart';
-import 'package:qr_code/ScanQR.dart';
+import 'package:qr_code/scan_qr.dart';
+import 'package:qr_code/generate_qr.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({super.key});
