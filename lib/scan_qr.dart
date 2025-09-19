@@ -9,23 +9,22 @@ class ScanQR extends StatefulWidget {
 }
 
 class _ScanQRState extends State<ScanQR> {
-  String qrResult = "Scanned data will appear here";
+  String? qrResult;
   bool scanned = false;
 
-  MobileScannerController controller = MobileScannerController();
+  final MobileScannerController controller = MobileScannerController();
 
   void _handleDetection(BarcodeCapture capture) {
-    if (scanned) return;
+    if (scanned) return; // prevent multiple scans
 
-    final List<Barcode> barcodes = capture.barcodes;
-    for (final barcode in barcodes) {
+    for (final barcode in capture.barcodes) {
       final String? code = barcode.rawValue;
-      if (code != null) {
+      if (code != null && code.isNotEmpty) {
         setState(() {
           qrResult = code;
           scanned = true;
         });
-        controller.stop(); // Stop scanning after successful read
+        controller.stop(); // stop scanner after success
         break;
       }
     }
@@ -33,10 +32,10 @@ class _ScanQRState extends State<ScanQR> {
 
   void _restartScan() {
     setState(() {
-      qrResult = "Scanning restarted...";
+      qrResult = null;
       scanned = false;
     });
-    controller.start(); // Restart scanning
+    controller.start();
   }
 
   @override
@@ -48,36 +47,85 @@ class _ScanQRState extends State<ScanQR> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF1C1C1E), // dark theme
       appBar: AppBar(
-        title: const Text("QR Code Scanner"),
-        backgroundColor: Colors.blueGrey,
+        title: const Text(
+          "Scan QR Code",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color(0xFF1C1C1E),
         iconTheme: const IconThemeData(color: Colors.white),
+        elevation: 0,
       ),
       body: Column(
         children: [
+          // Scanner View
           Expanded(
             flex: 4,
-            child: MobileScanner(
-              controller: controller,
-              onDetect: _handleDetection,
+            child: Container(
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.amber, width: 2),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    blurRadius: 8,
+                    offset: const Offset(2, 4),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: MobileScanner(
+                  controller: controller,
+                  onDetect: _handleDetection,
+                ),
+              ),
             ),
           ),
+
+          // Result Section
           Expanded(
-            flex: 1,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  qrResult,
-                  style: const TextStyle(fontSize: 16),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _restartScan,
-                  child: const Text("Scan Again"),
-                )
-              ],
+            flex: 2,
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
+                color: Color(0xFF2C2C2E),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    qrResult ?? "Point your camera at a QR code",
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.amber,
+                      foregroundColor: Colors.black,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 32, vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: _restartScan,
+                    child: const Text(
+                      "Scan Again",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
