@@ -125,8 +125,8 @@ class _GenerateQRState extends State<GenerateQR> {
         selectedItemColor: Colors.amber,
         unselectedItemColor: Colors.white54,
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: "Geberate"),
           BottomNavigationBarItem(icon: Icon(Icons.qr_code_scanner), label: "Scan"),
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: "Generate"),
           BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
         ],
       ),

@@ -54,8 +54,8 @@ class Myhome extends StatelessWidget {
         unselectedItemColor: Colors.white54,
         currentIndex: 1, // highlight "Home"
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: "Generate"),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: "Generator"),
           BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
         ],
       ),
