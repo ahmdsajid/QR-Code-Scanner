@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code/scan_qr.dart';
 import 'package:qr_code/generate_qr.dart';
+import 'package:qr_code/widgets/bottom_nav.dart';
 
 class Myhome extends StatelessWidget {
   const Myhome({super.key});
@@ -46,19 +47,7 @@ class Myhome extends StatelessWidget {
           ],
         ),
       ),
-
-      // Bottom Navigation (consistent with other pages)
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFF2C2C2E),
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white54,
-        currentIndex: 1, // highlight "Home"
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: "Generator"),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
-        ],
-      ),
+    bottomNavigationBar: const BottomNav(currentIndex: 0),
     );
   }
 

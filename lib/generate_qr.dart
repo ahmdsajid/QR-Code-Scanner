@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_code/widgets/bottom_nav.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class GenerateQR extends StatefulWidget {
@@ -118,20 +119,7 @@ class _GenerateQRState extends State<GenerateQR> {
           ),
         ),
       ),
-
-      // Bottom Navigation
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFF2C2C2E),
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.white54,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: "Geberate"),
-          BottomNavigationBarItem(
-            
-            icon: Icon(Icons.qr_code_scanner), label: "Scan"),
-          BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
-        ],
-      ),
+    bottomNavigationBar: BottomNav(currentIndex: 2),
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:qr_code/homewrapper.dart';
 import 'package:qr_code/myhome.dart';
+import 'package:qr_code/scan_qr.dart';
+import 'package:qr_code/splash.dart';
 
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeWrapper(),
+      home: const Splashscreeen(),
     );
   }
 }
